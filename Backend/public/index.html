@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>SMS</title>
+		<style>
+#messages li {
+	background: #598;
+	margin: 15px;
+	padding: 15px;
+}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<ul id="messages"></ul>
+
+		<form action="">
+			<input type="text" id="m" placeholder="meddage">
+			<button>Send</button>
+		</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  $('form').submit(function() {
+  	socket.emit('chat message', $('#m').val());
+  	$('#m').val('');
+  	return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').text(msg));
+  });
+</script>
+
+	</body>
+</html>
