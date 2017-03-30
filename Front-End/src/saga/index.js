@@ -1,10 +1,10 @@
 import { spawn } from 'redux-saga/effects';
-import todoSaga from './todoSaga';
+import counterSaga from './counterSaga';
 import chatSaga from './chatSaga';
 
 export default function* ourSagas() {
   yield [
-    spawn(todoSaga),
+    spawn(counterSaga),
     spawn(chatSaga)
   ]
 }

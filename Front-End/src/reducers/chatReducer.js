@@ -1,8 +1,6 @@
 export const ADD_MESSAGE = 'ourApp/ADD_MESSAGE';
 export const ADD_MESSAGE_REQUEST = 'ourApp/ADD_MESSAGE_REQUEST';
 
-//export const INCREMENT = 'ourApp/INCREMENT';
-
 export const addMessage = ({ text }) => (
   { type: ADD_MESSAGE, payload: { text } }
 );
@@ -10,8 +8,6 @@ export const addMessage = ({ text }) => (
 export const addMessageRequest = ({ text }) => (
   { type: ADD_MESSAGE_REQUEST, payload: { text } }
 );
-
-//export const increment = () => ({ type: INCREMENT });
 
 const initialState = { messages: ['hello man'] };
 

@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { routerReducer, routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory } from 'history';
-import counter from './reducers';
+import counter from './reducers/counterReducer';
 import chat from './reducers/chatReducer';
 import sagas from './saga';
 
