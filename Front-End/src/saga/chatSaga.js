@@ -1,9 +1,7 @@
 import io from 'socket.io-client';
 import { take, call, apply, fork, put } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
-import { addMessageRequest, ADD_MESSAGE_REQUEST, addMessage } from '../reducers/chatReducer';
-
-const socket = io('192.168.1.12:8080');
+import { ADD_MESSAGE_REQUEST, addMessage } from '../reducers/chatReducer';
 
 function createChatChannel(socket) {
   function channelHandler(emitter) {
@@ -19,7 +17,7 @@ function createChatChannel(socket) {
   return eventChannel(channelHandler);
 }
 
-function* receiveSaga() {
+function* receiveSaga(socket) {
   const chatChannel = yield call(createChatChannel, socket);
   while (true) {
     const payload = yield take(chatChannel);
@@ -28,22 +26,18 @@ function* receiveSaga() {
   }
 }
 
-function* sendMessageListener() {
+function* sendMessageListener(socket) {
   while (true) {
     const { payload } = yield take(ADD_MESSAGE_REQUEST);
-
-    // console.log('reveive from component ', payload);
-    socket.emit('chat message', payload);
-    //yield fork([socket, socket.emit], ['chat message', payload]);
+    // sending the message to the backend
+    yield apply(socket, socket.emit, ['chat message', payload]);
   }
 }
 
 export default function* chatSaga() {
+  const socket = io('localhost:3000');
   yield [
-    fork(sendMessageListener),
-    fork(receiveSaga),
+    fork(sendMessageListener, socket),
+    fork(receiveSaga, socket),
   ];
 }
-
-//export default io();
-
