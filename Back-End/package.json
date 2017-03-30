@@ -9,6 +9,6 @@
     },
     "author": "developer",
     "scripts": {
-    "start": "nodejs Chat.js"
+    "start": "nodemon Chat.js"
     }
 }
