@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { incrementRequest } from '../reducers';
+import { incrementRequest } from '../reducers/counterReducer';
 
 const Counter = (props) => {
   const { incrementRequest, amount } = props;
