@@ -1,6 +1,6 @@
 # React realtime Chat
 
-I built this example with [supernova23](https://github.com/supernova23) because We was struggling on how to integrate [socket.io-client](https://github.com/socketio/socket.io-client) with React application Using [Redux-saga](https://github.com/redux-saga/redux-saga) [Channels](https://redux-saga.github.io/redux-saga/docs/advanced/Channels.html) 
+I built this example with [supernova23](https://github.com/supernova23) because we were struggling on how to integrate [socket.io-client](https://github.com/socketio/socket.io-client) with React/Redux application Using [Redux-saga](https://github.com/redux-saga/redux-saga) [Channels](https://redux-saga.github.io/redux-saga/docs/advanced/Channels.html) 
 
 This example use :
   * redux
@@ -15,4 +15,4 @@ For the backend we used [Nodejs](https://github.com/nodejs/node) [Express.js](ht
 `cd Back-End && yarn start `
 
 ### Front-End
-`cd Back-End && yarn start `
+`cd Front-End && yarn start `
